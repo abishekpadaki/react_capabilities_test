@@ -1,8 +1,4 @@
-import React, { Component } from "react";
-import { hot } from "react-hot-loader";
-import ReactHighcharts from "react-highcharts";
-// import "./App.css";
-var config = {
+const config = {
   xAxis: {
     categories: [
       "Jan",
@@ -39,15 +35,4 @@ var config = {
   ]
 };
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1> Hello </h1>
-        <ReactHighcharts config={config}></ReactHighcharts>
-      </div>
-    );
-  }
-}
-
-export default hot(module)(App);
+export default config;
