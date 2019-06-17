@@ -1,40 +1,33 @@
 import React from "react";
 import { hot } from "react-hot-loader";
-import ReactHighcharts from "react-highcharts";
-import config from "../../data";
+import Highcharts from "highcharts";
+import gantt from "highcharts/modules/gantt";
+import { lineGraphData, ganttChartData } from "../../data";
 import Button from "../../components/button";
 import Sidebar from "../../components/Sidebar";
 import "./main.scss";
 
-class Highcharts extends React.Component {
+class Highchart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      graph: ""
-    };
+  }
+  componentDidMount() {
+    gantt(Highcharts);
   }
   changeGraph = e => {
-    this.setState({
-      graph: e.target.name
-    });
+    if (e.target.name === "linegraph") Highcharts.chart("chart", lineGraphData);
+    else Highcharts.ganttChart("chart", ganttChartData);
   };
   render() {
-    const { graph } = this.state;
     let mainComponent = <></>;
-    switch (graph) {
-      case "linegraph":
-        mainComponent = <ReactHighcharts config={config}></ReactHighcharts>;
-        break;
-      default:
-        mainComponent = (
-          <>
-            <p className="text">
-              You are experiencing react-highcharts library
-            </p>
-            <p className="text">Select the type of chart you want to test</p>
-          </>
-        );
-    }
+    mainComponent = (
+      <>
+        <p className="text">
+          You are experiencing react-highcharts library. Select the type of
+          chart you want to test
+        </p>
+      </>
+    );
     return (
       <>
         <Sidebar>
@@ -45,11 +38,21 @@ class Highcharts extends React.Component {
           >
             Line Graph
           </Button>
+          <Button
+            name="ganttchart"
+            className="sidelink"
+            onClick={this.changeGraph}
+          >
+            Gantt Chart
+          </Button>
         </Sidebar>
-        <div className="main">{mainComponent}</div>
+
+        <div id="chart" className="main">
+          {mainComponent}
+        </div>
       </>
     );
   }
 }
 
-export default hot(module)(Highcharts);
+export default hot(module)(Highchart);
