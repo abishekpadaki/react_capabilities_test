@@ -2,7 +2,7 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import ReactHighcharts from "react-highcharts";
 import config from "../../data";
-import Link from "../../components/Link";
+import Button from "../../components/button";
 import Sidebar from "../../components/Sidebar";
 import "./main.scss";
 
@@ -13,22 +13,40 @@ class Highcharts extends React.Component {
       graph: ""
     };
   }
-  changeGraph = graph => {
+  changeGraph = e => {
     this.setState({
-      graph: graph
+      graph: e.target.name
     });
   };
   render() {
+    const { graph } = this.state;
+    let mainComponent = <></>;
+    switch (graph) {
+      case "linegraph":
+        mainComponent = <ReactHighcharts config={config}></ReactHighcharts>;
+        break;
+      default:
+        mainComponent = (
+          <>
+            <p className="text">
+              You are experiencing react-highcharts library
+            </p>
+            <p className="text">Select the type of chart you want to test</p>
+          </>
+        );
+    }
     return (
       <>
         <Sidebar>
-          <button className="sidelink" onClick={this.changeGraph}>
+          <Button
+            name="linegraph"
+            className="sidelink"
+            onClick={this.changeGraph}
+          >
             Line Graph
-          </button>
+          </Button>
         </Sidebar>
-        <div className="main">
-          <ReactHighcharts config={config}></ReactHighcharts>
-        </div>
+        <div className="main">{mainComponent}</div>
       </>
     );
   }
