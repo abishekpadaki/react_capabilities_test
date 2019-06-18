@@ -23,8 +23,8 @@ class Highchart extends React.Component {
     mainComponent = (
       <>
         <p className="text">
-          You are experiencing react-highcharts library. Select the type of
-          chart you want to test
+          You are experiencing highcharts library. Select the type of chart you
+          want to test
         </p>
       </>
     );
