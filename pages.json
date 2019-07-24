@@ -1,8 +1,8 @@
 {
   "pages":[
-            {"env":"qa1","brand":"jeep","url":"http://fca-qa1-jeep-sape.test.com"}
-            {"env":"qa1","brand":"jeep","http://fca-qa1-jeep-sape.test.com/grand-cherokee.html"}
-            {"env":"qa1","brand":"alfaromeousa","url":"http://fca-qa1-alfaromeousa-sape.test.com"}
-            {"env":"qa1","brand":"ramtrucks","http://fca-qa1-ramtrucks-sape.test.com/upfitguide/upfits/vehicle.html/27"}
+            {"env":"qa1","brand":"jeep","url":"http://fca-qa1-jeep-sape.test.com"},
+            {"env":"qa1","brand":"jeep","url":"http://fca-qa1-jeep-sape.test.com/grand-cherokee.html"},
+            {"env":"qa1","brand":"alfaromeousa","url":"http://fca-qa1-alfaromeousa-sape.test.com"},
+            {"env":"qa1","brand":"ramtrucks","url":"http://fca-qa1-ramtrucks-sape.test.com/upfitguide/upfits/vehicle.html/27"},
           ]
 }
